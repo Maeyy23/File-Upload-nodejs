@@ -6,7 +6,7 @@ const uploadFileToCloudinary = async (filepath) => {
 
     const result = await new Promise((resolve, reject) => {
       cloudinary.v2.uploader
-        .upload(filepath)
+        .upload(filepath, { resource_type: "auto" })
         .then((result) => resolve(result))
         .catch((error) => reject(error));
     });
